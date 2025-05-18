@@ -8,9 +8,8 @@ namespace Catansy.Applicaton
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            // Aquí registrarás servicios de dominio, validadores, etc.
-            
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IRegionService, RegionService>();
 
             return services;
         }

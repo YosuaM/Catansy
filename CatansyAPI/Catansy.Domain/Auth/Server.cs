@@ -3,17 +3,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Catansy.Domain.Auth
 {
-    public class Account
+    public class Server
     {
         public Guid Id { get; set; } = Guid.NewGuid();
-        
+
         [MaxLength(50)]
-        public string Username { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
 
-        [MaxLength(255)]
-        public string? PasswordHash { get; set; } = null;
+        public Guid RegionId { get; set; }
+        public Region Region { get; set; } = null!;
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public bool Enabled { get; set; } = false;
 
         public ICollection<Character> Characters { get; set; } = new List<Character>();
     }

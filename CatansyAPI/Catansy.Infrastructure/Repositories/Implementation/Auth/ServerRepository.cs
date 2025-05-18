@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Catansy.Infrastructure.Repositories.Implementation.Auth
 {
-    public class AccountRepository : IAccountRepository
+    public class ServerRepository : IServerRepository
     {
         #region Attributes
         private readonly GameDbContext _context;
@@ -13,7 +13,7 @@ namespace Catansy.Infrastructure.Repositories.Implementation.Auth
 
 
         #region Constructor
-        public AccountRepository(GameDbContext context)
+        public ServerRepository(GameDbContext context)
         {
             _context = context;
         }
@@ -21,17 +21,13 @@ namespace Catansy.Infrastructure.Repositories.Implementation.Auth
 
 
         #region Public methods
-        public async Task<Account?> GetByUsernameAsync(string username)
+        public async Task<Server?> GetByIdAsync(Guid id)
         {
-            return await _context.Accounts
-                .FirstOrDefaultAsync(p => p.Username.ToLower() == username.ToLower());
-        }
-
-        public async Task AddAsync(Account account)
-        {
-            _context.Accounts.Add(account);
-            await _context.SaveChangesAsync();
+            return await _context.Servers
+                .Include(s => s.Region)
+                .FirstOrDefaultAsync(s => s.Id == id);
         }
         #endregion
     }
+
 }

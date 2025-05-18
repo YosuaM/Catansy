@@ -22,7 +22,7 @@ public static class Program
         builder.Services.AddSwaggerGen();
 
         // Configuración JWT temporal (luego extraeremos a configuración)
-        var jwtKey = "clave-super-secreta-de-jwt"; // 🔐 mueve esto a appsettings.json
+        var jwtKey = builder.Configuration["Jwt:Key"];
         var key = Encoding.ASCII.GetBytes(jwtKey);
 
         builder.Services.AddAuthentication(options =>

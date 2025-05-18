@@ -15,7 +15,7 @@ namespace Catansy.API.Controllers
             _authService = authService;
         }
 
-        [HttpPost("register")]
+        [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
             try
@@ -29,7 +29,7 @@ namespace Catansy.API.Controllers
             }
         }
 
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
             try

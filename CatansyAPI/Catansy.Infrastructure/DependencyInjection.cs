@@ -1,6 +1,8 @@
 ﻿using Catansy.Applicaton.Repositories.Interfaces.Auth;
+using Catansy.Applicaton.Repositories.Interfaces.Game;
 using Catansy.Infrastructure.Persistence;
 using Catansy.Infrastructure.Repositories.Implementation.Auth;
+using Catansy.Infrastructure.Repositories.Implementation.Game;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +18,9 @@ namespace Catansy.Infrastructure
             );
 
             services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<ICharacterRepository, CharacterRepository>();
+            services.AddScoped<IRegionRepository, RegionRepository>();
+            services.AddScoped<IServerRepository, ServerRepository>();
 
             return services;
         }
