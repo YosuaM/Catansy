@@ -14,7 +14,7 @@ public static class Program
 
         // Agregar Application e Infrastructure (DI modular)
         builder.Services.AddApplication();
-        builder.Services.AddInfrastructure();
+        builder.Services.AddInfrastructure(builder.Configuration);
 
         // Controladores y Swagger
         builder.Services.AddControllers();

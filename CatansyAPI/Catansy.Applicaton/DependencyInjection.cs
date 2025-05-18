@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Catansy.Applicaton.Services.Implementation.Auth;
+using Catansy.Applicaton.Services.Interfaces.Auth;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Catansy.Applicaton
 {
@@ -7,7 +9,8 @@ namespace Catansy.Applicaton
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             // Aquí registrarás servicios de dominio, validadores, etc.
-            // services.AddScoped<IPlayerService, PlayerService>();
+            
+            services.AddScoped<IAuthService, AuthService>();
 
             return services;
         }
