@@ -40,6 +40,13 @@ namespace Catansy.Infrastructure.Repositories.Implementation.Game
             _context.Characters.Add(character);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<Character?> GetByIdAsync(Guid characterId)
+        {
+            return await _context.Characters
+                .Include(c => c.Server)
+                .FirstOrDefaultAsync(c => c.Id == characterId);
+        }
         #endregion
     }
 }

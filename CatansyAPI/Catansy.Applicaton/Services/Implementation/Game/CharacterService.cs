@@ -62,6 +62,22 @@ namespace Catansy.Applicaton.Services.Implementation.Game
                 ServerName = server.Name
             };
         }
+
+        public async Task<CharacterDto?> GetCharacterByIdAsync(Guid accountId, Guid characterId)
+        {
+            var character = await _characterRepo.GetByIdAsync(characterId);
+
+            if (character == null || character.AccountId != accountId)
+                return null;
+
+            return new CharacterDto
+            {
+                Id = character.Id,
+                Name = character.Name,
+                ServerId = character.ServerId,
+                ServerName = character.Server?.Name ?? string.Empty
+            };
+        }
         #endregion
     }
 }

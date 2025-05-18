@@ -6,5 +6,6 @@ namespace Catansy.Applicaton.Services.Interfaces.Game
     {
         Task<IEnumerable<CharacterDto>> GetCharactersForAccountAsync(Guid accountId);
         Task<CharacterDto> CreateCharacterAsync(Guid accountId, CharacterCreateRequest request);
+        Task<CharacterDto?> GetCharacterByIdAsync(Guid accountId, Guid characterId);
     }
 }

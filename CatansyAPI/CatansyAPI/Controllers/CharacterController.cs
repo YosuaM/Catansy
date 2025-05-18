@@ -33,5 +33,17 @@ namespace Catansy.API.Controllers
             var character = await _characterService.CreateCharacterAsync(accountId, request);
             return Ok(character);
         }
+
+        [HttpGet("{characterId}")]
+        public async Task<IActionResult> GetCharacterById(Guid characterId)
+        {
+            var accountId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+            var character = await _characterService.GetCharacterByIdAsync(accountId, characterId);
+
+            if (character == null)
+                return NotFound();
+
+            return Ok(character);
+        }
     }
 }
