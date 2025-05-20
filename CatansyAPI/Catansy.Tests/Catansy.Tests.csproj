@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Catansy.Applicaton\Catansy.Applicaton.csproj" />
+    <ProjectReference Include="..\CatansyAPI\Catansy.API.csproj" />
   </ItemGroup>
 
 </Project>

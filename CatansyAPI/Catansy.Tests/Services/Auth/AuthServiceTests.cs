@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Moq;
 using Xunit;
 
-namespace Catansy.Tests.Auth
+namespace Catansy.Tests.Services.Auth
 {
     public class AuthServiceTests
     {

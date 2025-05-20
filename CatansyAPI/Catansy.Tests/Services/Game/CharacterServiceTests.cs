@@ -8,7 +8,7 @@ using FluentAssertions;
 using Moq;
 using Xunit;
 
-namespace Catansy.Tests.Game
+namespace Catansy.Tests.Services.Game
 {
     public class CharacterServiceTests
     {

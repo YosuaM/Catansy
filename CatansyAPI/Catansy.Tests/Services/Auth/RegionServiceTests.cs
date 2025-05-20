@@ -5,7 +5,7 @@ using FluentAssertions;
 using Moq;
 using Xunit;
 
-namespace Catansy.Tests.Auth
+namespace Catansy.Tests.Services.Auth
 {
     public class RegionServiceTests
     {

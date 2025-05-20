@@ -29,9 +29,16 @@ namespace Catansy.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCharacter([FromBody] CharacterCreateRequest request)
         {
-            var accountId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
-            var character = await _characterService.CreateCharacterAsync(accountId, request);
-            return Ok(character);
+            try
+            {
+                var accountId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+                var character = await _characterService.CreateCharacterAsync(accountId, request);
+                return Ok(character);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
         }
 
         [HttpGet("{characterId}")]

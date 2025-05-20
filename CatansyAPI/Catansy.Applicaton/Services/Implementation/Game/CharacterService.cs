@@ -40,10 +40,10 @@ namespace Catansy.Applicaton.Services.Implementation.Game
         {
             // Verify if the account already has a character in the server
             if (await _characterRepo.ExistsForAccountInServerAsync(accountId, request.ServerId))
-                throw new Exception("Ya tienes un personaje en ese servidor.");
+                throw new Exception("You already have a character on this server.");
 
             var server = await _serverRepo.GetByIdAsync(request.ServerId)
-                         ?? throw new Exception("Servidor no encontrado.");
+                         ?? throw new Exception("Server not found.");
 
             var character = new Character
             {
