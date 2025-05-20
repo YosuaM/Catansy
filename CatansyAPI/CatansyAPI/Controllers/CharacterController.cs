@@ -1,4 +1,5 @@
-﻿using Catansy.Applicaton.DTOs.Auth;
+﻿using Catansy.Applicaton.DTOs.Game;
+using Catansy.Applicaton.Services.Implementation.Game;
 using Catansy.Applicaton.Services.Interfaces.Game;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +13,15 @@ namespace Catansy.API.Controllers
     public class CharacterController : ControllerBase
     {
         private readonly ICharacterService _characterService;
+        private readonly IIdleProgressService _idleProgressService;
 
-        public CharacterController(ICharacterService characterService)
+        public CharacterController(
+            ICharacterService characterService,
+            IIdleProgressService idleProgressService
+        )
         {
             _characterService = characterService;
+            _idleProgressService = idleProgressService;
         }
 
         [HttpGet]
@@ -51,6 +57,26 @@ namespace Catansy.API.Controllers
                 return NotFound();
 
             return Ok(character);
+        }
+
+        [HttpPost("{characterId}/claim-rewards")]
+        public async Task<IActionResult> ClaimIdleRewards(Guid characterId)
+        {
+            var accountId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+
+            try
+            {
+                var result = await _idleProgressService.ClaimRewardsAsync(accountId, characterId);
+                return Ok(result);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { error = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
         }
     }
 }

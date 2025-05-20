@@ -1,4 +1,4 @@
-﻿using Catansy.Applicaton.DTOs.Auth;
+﻿using Catansy.Applicaton.DTOs.Game;
 using Catansy.Applicaton.Repositories.Interfaces.Auth;
 using Catansy.Applicaton.Repositories.Interfaces.Game;
 using Catansy.Applicaton.Services.Implementation.Game;
@@ -45,7 +45,7 @@ namespace Catansy.Tests.Services.Game
 
             // Assert
             await act.Should().ThrowAsync<Exception>()
-                .WithMessage("Ya tienes un personaje en ese servidor.");
+                .WithMessage("You already have a character on this server.");
         }
 
         [Fact]
@@ -67,7 +67,7 @@ namespace Catansy.Tests.Services.Game
             Func<Task> act = async () => await _sut.CreateCharacterAsync(accountId, request);
 
             await act.Should().ThrowAsync<Exception>()
-                .WithMessage("Servidor no encontrado.");
+                .WithMessage("Server not found.");
         }
 
         [Fact]

@@ -1,4 +1,4 @@
-﻿using Catansy.Applicaton.DTOs.Auth;
+﻿using Catansy.Applicaton.DTOs.Game;
 
 namespace Catansy.Applicaton.Services.Interfaces.Game
 {

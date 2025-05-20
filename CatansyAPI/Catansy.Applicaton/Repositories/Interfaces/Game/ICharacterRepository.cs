@@ -8,5 +8,6 @@ namespace Catansy.Applicaton.Repositories.Interfaces.Game
         Task<bool> ExistsForAccountInServerAsync(Guid accountId, Guid serverId);
         Task AddAsync(Character character);
         Task<Character?> GetByIdAsync(Guid characterId);
+        Task UpdateAsync(Character character);
     }
 }

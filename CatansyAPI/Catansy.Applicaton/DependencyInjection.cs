@@ -12,6 +12,7 @@ namespace Catansy.Applicaton
         {
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ICharacterService, CharacterService>();
+            services.AddScoped<IIdleProgressService, IdleProgressService>();
             services.AddScoped<IRegionService, RegionService>();
 
             return services;

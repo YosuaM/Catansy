@@ -1,271 +1,333 @@
 {
-	"info": {
-		"_postman_id": "b80243ca-006b-4426-93c1-81075379206b",
-		"name": "Catansy",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "10663558"
-	},
-	"item": [
-		{
-			"name": "Auth",
-			"item": [
-				{
-					"name": "Register",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{base_url}}Auth/Register",
-							"host": [
-								"{{base_url}}Auth"
-							],
-							"path": [
-								"Register"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Login",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"content-type": true
-						}
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"pass\"\r\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}Auth/Login",
-							"host": [
-								"{{base_url}}Auth"
-							],
-							"path": [
-								"Login"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Character",
-			"item": [
-				{
-					"name": "Create character",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "serverId",
-									"value": "",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{base_url}}Character",
-							"host": [
-								"{{base_url}}Character"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get character",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}Character",
-							"host": [
-								"{{base_url}}Character"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Region",
-			"item": [
-				{
-					"name": "Get all regions",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}regions",
-							"host": [
-								"{{base_url}}regions"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get servers by region",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}regions/:regionId/servers",
-							"host": [
-								"{{base_url}}regions"
-							],
-							"path": [
-								":regionId",
-								"servers"
-							],
-							"variable": [
-								{
-									"key": "regionId",
-									"value": "d69979a0-1523-4d71-bcaa-000000000001"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get regions with servers",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}Regions/Full",
-							"host": [
-								"{{base_url}}Regions"
-							],
-							"path": [
-								"Full"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "base_url",
-			"value": "https://localhost:7234/api/",
-			"type": "string"
-		},
-		{
-			"key": "token",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Ijg3ZTk0NDBmLWU4ZWItNDU5OS1hODM5LTUzZDhiYTFmMDAzMSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJhZG1pbiIsImV4cCI6MTc1MDEyNDIxNn0.5NkqMPvt_63dVKlgv6bTep2qv7u_y8VimbbhYSlzyb8",
-			"type": "default"
-		}
-	]
+  "info": {
+    "_postman_id": "b80243ca-006b-4426-93c1-81075379206b",
+    "name": "Catansy",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "10663558"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "username",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}Auth/Register",
+              "host": [
+                "{{base_url}}Auth"
+              ],
+              "path": [
+                "Register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "content-type": true
+            }
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"pass\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}Auth/Login",
+              "host": [
+                "{{base_url}}Auth"
+              ],
+              "path": [
+                "Login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Character",
+      "item": [
+        {
+          "name": "Create character",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Personaje prueba\",\r\n  \"serverId\": \"e45525b1-021f-4da7-af20-000000000001\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}Character",
+              "host": [
+                "{{base_url}}Character"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get own characters",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}Character",
+              "host": [
+                "{{base_url}}Character"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get character",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}Character/:characterId",
+              "host": [
+                "{{base_url}}Character"
+              ],
+              "path": [
+                ":characterId"
+              ],
+              "variable": [
+                {
+                  "key": "characterId",
+                  "value": "83cfb1f2-1984-4b6c-a45f-606296622469"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Claim idle rewards",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}Character/:characterId/claim-rewards",
+              "host": [
+                "{{base_url}}Character"
+              ],
+              "path": [
+                ":characterId",
+                "claim-rewards"
+              ],
+              "variable": [
+                {
+                  "key": "characterId",
+                  "value": "83cfb1f2-1984-4b6c-a45f-606296622469"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Region",
+      "item": [
+        {
+          "name": "Get all regions",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}regions",
+              "host": [
+                "{{base_url}}regions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get servers by region",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}regions/:regionId/servers",
+              "host": [
+                "{{base_url}}regions"
+              ],
+              "path": [
+                ":regionId",
+                "servers"
+              ],
+              "variable": [
+                {
+                  "key": "regionId",
+                  "value": "d69979a0-1523-4d71-bcaa-000000000001"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get regions with servers",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}Regions/Full",
+              "host": [
+                "{{base_url}}Regions"
+              ],
+              "path": [
+                "Full"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://localhost:7234/api/",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Ijg3ZTk0NDBmLWU4ZWItNDU5OS1hODM5LTUzZDhiYTFmMDAzMSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJhZG1pbiIsImV4cCI6MTc1MDEyNDIxNn0.5NkqMPvt_63dVKlgv6bTep2qv7u_y8VimbbhYSlzyb8",
+      "type": "default"
+    }
+  ]
 }

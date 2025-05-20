@@ -1,4 +1,4 @@
-﻿using Catansy.Applicaton.DTOs.Auth;
+﻿using Catansy.Applicaton.DTOs.Game;
 using Catansy.Applicaton.Repositories.Interfaces.Auth;
 using Catansy.Applicaton.Repositories.Interfaces.Game;
 using Catansy.Applicaton.Services.Interfaces.Game;

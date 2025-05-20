@@ -1,4 +1,4 @@
-﻿namespace Catansy.Applicaton.DTOs.Auth
+﻿namespace Catansy.Applicaton.DTOs.Game
 {
     public class CharacterCreateRequest
     {

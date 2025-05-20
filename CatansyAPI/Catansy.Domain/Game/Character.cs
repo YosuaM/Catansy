@@ -15,6 +15,11 @@ namespace Catansy.Domain.Game
 
         public Guid ServerId { get; set; }
         public Server Server { get; set; } = null!;
+
+        public int Level { get; set; } = 1;
+        public long Experience { get; set; } = 0;
+        public long Gold { get; set; } = 0;
+        public DateTime LastCollectedAt { get; set; } = DateTime.UtcNow;
     }
 
 }

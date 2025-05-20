@@ -47,6 +47,12 @@ namespace Catansy.Infrastructure.Repositories.Implementation.Game
                 .Include(c => c.Server)
                 .FirstOrDefaultAsync(c => c.Id == characterId);
         }
+
+        public async Task UpdateAsync(Character character)
+        {
+            _context.Characters.Update(character);
+            await _context.SaveChangesAsync();
+        }
         #endregion
     }
 }

@@ -23,14 +23,14 @@ public class RegionsController : ControllerBase
         return Ok(regions);
     }
 
-    [HttpGet("{regionId}/Servers")]
+    [HttpGet("{regionId}/servers")]
     public async Task<IActionResult> GetServersByRegion(Guid regionId)
     {
         var servers = await _regionService.GetServersByRegionAsync(regionId);
         return Ok(servers);
     }
 
-    [HttpGet("Full")]
+    [HttpGet("full")]
     public async Task<IActionResult> GetRegionsWithServers()
     {
         var result = await _regionService.GetAllRegionsWithServersAsync();
