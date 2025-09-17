@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "http": {
+    "Catansy.API": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35806.99 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catansy.API", "CatansyAPI\Catansy.API.csproj", "{3C3ED283-A122-44A8-B382-B11D0C69C2D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catansy.API", "Catansy.API\Catansy.API.csproj", "{3C3ED283-A122-44A8-B382-B11D0C69C2D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catansy.Domain", "Catansy.Domain\Catansy.Domain.csproj", "{DAC82517-787B-45B9-B048-0CA50BAA078C}"
 EndProject
